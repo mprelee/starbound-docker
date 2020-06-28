@@ -5,8 +5,13 @@ services:
       context: .
     image: install
     volumes:
-      - ./starbound:/starbound
-    command: /bin/bash 
+      - ${HOSTINSTALLPATH}:/starbound
+    environment:
+      - STEAMUSER=${STEAMUSER}
+      - STEAMPASSWORD=${STEAMPASSWORD}
+      - STEAMGUARD=${STEAMGUARD}
+      - STARBOUNDPATH=${STARBOUNDPATH}
+    command: ./update_starbound_server.sh
     stdin_open: true # docker run -i
     tty: true        # docker run -t
 
