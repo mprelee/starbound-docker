@@ -6,6 +6,7 @@ services:
     image: install
     volumes:
       - ./starbound:/starbound
+    command: /bin/bash 
     stdin_open: true # docker run -i
     tty: true        # docker run -t
 

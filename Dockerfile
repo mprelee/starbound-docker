@@ -1,6 +1,6 @@
 FROM ubuntu:18.04
+ENV STARBOUNDPATH /data/starbound
 ENV STEAMCMDPATH /steamcmd
-ENV STARBOUNDPATH /starbound
 VOLUME ${STARBOUNDPATH}
 RUN apt-get update \
     && apt-get install -y wget lib32gcc1 libvorbisfile3 
