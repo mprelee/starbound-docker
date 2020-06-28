@@ -1,11 +1,11 @@
 version: "3.8"
 services:
-  base:
+  install:
     build: 
       context: .
-    image: base
+    image: install
+    volumes:
+      - ./starbound:/starbound
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
 
-volumes:
-  starbound:
-
-secrets:
