@@ -15,3 +15,14 @@ services:
     stdin_open: true # docker run -i
     tty: true        # docker run -t
 
+  server:
+    image: install
+    volumes:
+      - ${HOSTINSTALLPATH}:/starbound
+    environment:
+      - STARBOUNDPATH=${STARBOUNDPATH}
+    command: bash ${STARBOUNDPATH}/linux/starbound_server
+    ports:
+      - 21025:21025
+ 
+
