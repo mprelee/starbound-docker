@@ -9,20 +9,20 @@ services:
     environment:
       - STEAMUSER=${STEAMUSER}
       - STEAMPASSWORD=${STEAMPASSWORD}
-      - STEAMGUARD=${STEAMGUARD}
-      - STARBOUNDPATH=${STARBOUNDPATH}
-    command: ./update_starbound_server.sh
-    stdin_open: true # docker run -i
-    tty: true        # docker run -t
+    entrypoint: ./update_starbound_server.sh
+    command: ${STEAMGUARD}
 
   server:
-    image: install
+    build:
+      context: .
     volumes:
       - ${HOSTINSTALLPATH}:/starbound
-    environment:
-      - STARBOUNDPATH=${STARBOUNDPATH}
-    command: ./${STARBOUNDPATH}/linux/starbound_server
+    command: ./starbound_server
+    working_dir: /starbound/linux
     ports:
       - 21025:21025
- 
+        #stdin_open: true # docker run -i
+        #tty: true        # docker run -t
+
+
 
