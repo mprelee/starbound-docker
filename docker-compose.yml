@@ -21,7 +21,7 @@ services:
       - ${HOSTINSTALLPATH}:/starbound
     environment:
       - STARBOUNDPATH=${STARBOUNDPATH}
-    command: bash ${STARBOUNDPATH}/linux/starbound_server
+    command: bash ${STARBOUNDPATH}/linux/starbound_server.sh
     ports:
       - 21025:21025
  
